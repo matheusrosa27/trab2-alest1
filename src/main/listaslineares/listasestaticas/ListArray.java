@@ -84,7 +84,7 @@ public class ListArray implements ListTAD {
      */
     @Override
     public void add(int index, int element) {
-        //implementar
+        // Implementado
         if (( index < 0) || (index > count) ) {
             throw new IndexOutOfBoundsException ( ) ;
         }
@@ -186,21 +186,32 @@ public class ListArray implements ListTAD {
      */
     @Override
     public boolean remove(int element) {
+        // Deixando zeros
         for (int i = 0; i < count; i++) {
             if (data[i] == element) {
-                data[i] = null;
-                count--;
-            }
-        }
-        int[] newData = new int[count];
-        for (int i = 0; i < count; i++) {
-            if (data[i] != element) {
-                newData[i] = data[i];
-                data[i] = null;
+                data[i] = 0;
                 return true;
             }
         }
         return false;
+        
+        
+        // Tentando não deixar zeros
+        /*
+        int[] newData = new int[data.length];
+        for (int i = 0; i < count; i++) {
+            if (data[i] != element) {
+                newData[i] = data[i];
+            } else {
+                if (data[i] == element) {
+                    count--;
+                }
+            }
+        }
+        
+        data = newData;
+        return true;
+        */
     }
 
     /**
@@ -211,7 +222,11 @@ public class ListArray implements ListTAD {
      */
     @Override
     public int indexOf(int e) {
-        //implementar
+        for (int i = 0; i < count; i++) {
+            if (data[i] == e) {
+                return i;
+            }
+        }
         return -1;
     }
 
@@ -219,7 +234,14 @@ public class ListArray implements ListTAD {
      * Inverte o conteúdo da lista
      */
     public void reverse() {
-        //implementar
+        int[] newData = new int[data.length];
+        int aux = 0;
+        for (int i=count-1; i >= 0; i--) {
+            newData[aux] = data[i];
+            aux++;
+        }
+        data = newData;
+        System.out.println("Array reversed");
     }
 
     /**
