@@ -7,36 +7,24 @@ public class AppListaArray {
         System.out.println("Demonstracao do ListArray");
 
         ListArray minhaLista = new ListArray(3);
-        minhaLista.add(200);
-        minhaLista.add(500);
-        minhaLista.add(900);
-        minhaLista.add(56);
+        //minhaLista.add(200);
+        //minhaLista.add(500);
+        //minhaLista.add(900);
+        //minhaLista.add(56);
 
-        minhaLista.add(0, 666);
+        //minhaLista.add(0, 666);
 
         System.out.println(minhaLista);
         System.out.println(minhaLista.size());
 
-        System.out.println(minhaLista.get(3));
+        //System.out.println(minhaLista.get(3));
 
         //meus testes
-        minhaLista.set(3, 7);
+        minhaLista.add(0, 15);
+        minhaLista.add(1, 13);
+        minhaLista.add(2, 10);
         System.out.println(minhaLista);
-        System.out.println("Remove 7 done: "+minhaLista.remove(7));
-        System.out.println(minhaLista);
-        minhaLista.add(8);
-        System.out.println(minhaLista);
-        System.out.println("Remove 8 done: "+minhaLista.remove(8));
-
-        System.out.println(minhaLista.isEmpty());
-        System.out.println(minhaLista.contains(7));
-        System.out.println(minhaLista.contains(200));
-        System.out.println("Index of 666: "+minhaLista.indexOf(666));
-        System.out.println(minhaLista);
-        // minhaLista.clear();
-        // System.out.println(minhaLista);
-
-        minhaLista.reverse();
+        minhaLista.addDecreasingOrder(9);
         System.out.println(minhaLista);
 
         /*

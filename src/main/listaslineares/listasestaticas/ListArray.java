@@ -251,8 +251,13 @@ public class ListArray implements ListTAD {
      * @return total de ocorrências
      */
     public int countOccurrences(int e) {
-        //implementar
-        return 0;
+        int occ = 0;
+        for (int i = 0; i < count; i++) {
+            if (data[i] == e) {
+                occ++;
+            }
+        }
+        return occ;
     }
 
     /**
@@ -262,7 +267,18 @@ public class ListArray implements ListTAD {
      * @param element elemento a ser inserido
      */
     public void addIncreasingOrder(int element) {
-        //implementar
+        for (int i = 0; i < count; i++) {
+            if (element > data[i] && element < data[i + 1]) {
+                int index = indexOf(data[i]);
+                add(index+1,element);
+                break;
+            }
+            if (element <= data[i]) {
+                int index = indexOf(data[i]);
+                add(index,element);
+                break;
+            }
+        }
     }
 
     /**
@@ -272,6 +288,18 @@ public class ListArray implements ListTAD {
      * @param element elemento a ser inserido
      */
     public void addDecreasingOrder(int element) {
-        //implementar
+        setCapacity(data.length * 2);
+        for (int i = 0; i < count; i++) {
+            if (element < data[i] && element >= data[i + 1]) {
+                int index = indexOf(data[i]);
+                add(index+1, element);
+                break;
+            }
+            if (element >= data[i]) {
+                int index = data[i];
+                add(index,element);
+                break;
+            }
+        }
     }
 }
