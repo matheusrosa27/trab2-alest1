@@ -186,32 +186,25 @@ public class ListArray implements ListTAD {
      */
     @Override
     public boolean remove(int element) {
-        // Deixando zeros
+        int[] newData = new int[data.length];
         for (int i = 0; i < count; i++) {
             if (data[i] == element) {
                 data[i] = 0;
-                return true;
             }
         }
-        return false;
-        
-        
-        // Tentando não deixar zeros
-        /*
-        int[] newData = new int[data.length];
-        for (int i = 0; i < count; i++) {
-            if (data[i] != element) {
-                newData[i] = data[i];
+        int j = 0;
+        for (int i=0; i < count; i++) {
+            int aux = data[i];
+            if (data[i] != 0) {
+                newData[j] = aux;
+                j++;
             } else {
-                if (data[i] == element) {
-                    count--;
-                }
+                
             }
         }
-        
         data = newData;
+        count--;
         return true;
-        */
     }
 
     /**

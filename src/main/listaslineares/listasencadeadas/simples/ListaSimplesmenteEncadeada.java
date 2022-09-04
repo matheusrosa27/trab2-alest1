@@ -32,8 +32,8 @@ public class ListaSimplesmenteEncadeada {
         }
         Nodo novoNodo = new Nodo(elemento);
         if(posicao==0) { //inserindo no inicio
+            novoNodo.proximo = this.inicio;
             this.inicio = novoNodo;
-            this.fim = novoNodo;
             quantidade++;
         }
         else if (posicao==quantidade-1) { //insere no final
@@ -53,11 +53,29 @@ public class ListaSimplesmenteEncadeada {
     }
 
     public void remover(int elemento) {
-        //implementar
+        // Implementado
+        Nodo pant = null;
+        Nodo paux = this.inicio;
+        for (int i=0; i<quantidade-1; i++){
+            pant = paux;
+            paux = paux.proximo;
+            if (pant.elemento == elemento) {
+                this.inicio = pant.proximo;
+                break;
+            } else if (paux.elemento == elemento) {
+                pant.proximo = paux.proximo;
+                break;
+            }
+            pant = pant.proximo;
+            paux = paux.proximo;
+        }
     }
 
     public void removerPelaPosicao(int posicao) {
-        //implementar
+        // Implementado
+        int elemento = ler(posicao);
+        remover(elemento);
+        System.out.println("Removido elemento "+elemento+" na posição "+posicao);
     }
 
     public int ler(int posicao) {
@@ -70,7 +88,14 @@ public class ListaSimplesmenteEncadeada {
     }
 
     public void escrever(int posicao, int elemento) {
-        //implementar
+        // Implementado
+        Nodo paux = this.inicio;
+        int p = 0;
+        for(int i=0; i<posicao; i++) {
+            paux = paux.proximo;
+        }
+        paux.elemento = elemento;
+        System.out.println("Escrito na posição "+posicao+" o elemento "+elemento);
     }
 
     public int tamanho() {
@@ -89,9 +114,18 @@ public class ListaSimplesmenteEncadeada {
         //indexOf metodo
         //retorna a posicao na lista do elemento ou -1 se nao existir
         Nodo paux = this.inicio;
-        for (int posicao = 0; posicao < this.quantidade; posicao++) {
-            if(paux.elemento==elemento) return posicao;
+        int posicao = 0;
+        if (paux.elemento == elemento) {
+            return posicao;
         }
+        while (paux.proximo != null) {
+            posicao++;
+            paux = paux.proximo;
+            if (paux.elemento == elemento) {
+                return posicao;
+            }
+        }
+        
         return -1;
     }
     @Override

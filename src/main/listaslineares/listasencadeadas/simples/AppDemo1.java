@@ -7,6 +7,16 @@ public class AppDemo1 {
         ls1.adicionar(10);
         ls1.adicionar(99);
         ls1.adicionar(1, 100);
+
+        // MEUS TESTES
+        System.out.println(ls1.toString());
+        ls1.remover(99);
+        System.out.println(ls1.toString());
+        ls1.removerPelaPosicao(1);
+        System.out.println(ls1.toString());
+        ls1.escrever(0, 27);
+        System.out.println(ls1.toString());
+        
         ls1.adicionar(0, -5); //insere na primeira posicao
         ls1.adicionar(4, 102);
         System.out.println(ls1.toString());

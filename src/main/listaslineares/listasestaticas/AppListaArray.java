@@ -19,12 +19,14 @@ public class AppListaArray {
 
         //System.out.println(minhaLista.get(3));
 
-        //meus testes
+        //Testes Matheus
         minhaLista.add(0, 15);
         minhaLista.add(1, 13);
         minhaLista.add(2, 10);
         System.out.println(minhaLista);
-        minhaLista.addDecreasingOrder(9);
+        minhaLista.addIncreasingOrder(9);
+        minhaLista.remove(13);
+        minhaLista.remove(10);
         System.out.println(minhaLista);
 
         /*
